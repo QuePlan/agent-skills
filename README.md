@@ -30,6 +30,15 @@ Perú (queplan.pe) y Colombia (queseguro.co): próximamente.
 - Datos mínimos: nunca RUT, tarjetas, claves ni datos de salud.
 - Los [Términos y Condiciones](https://queplan.cl/Terminos-y-Condiciones) (sección 13.1) permiten usar agentes de IA para cotizar y contratar. No permiten copiar el contenido o los precios para revenderlos, competir o captar clientes.
 
+## Datos que se envían
+
+La skill no tiene servidores ni conectores propios. El agente usa queplan.cl en el navegador de la persona y escribe allí solo lo necesario para cotizar:
+- edad y sexo de cada persona a asegurar, y la edad de las cargas;
+- previsión (isapre o Fonasa) y región;
+- la renta, si la persona quiere darla (planes de isapre).
+
+No pide nombre, RUT, correo, teléfono, tarjetas ni datos de salud. QuePlan trata esos datos según su [Política de Privacidad](https://queplan.cl/politica-de-privacidad).
+
 Más información: https://queplan.cl/agentes-ia · Integraciones, acuerdos y reportes: agentes@queplan.cl
 
 ---
@@ -39,6 +48,8 @@ Más información: https://queplan.cl/agentes-ia · Integraciones, acuerdos y re
 Official [Agent Skills](https://agentskills.io) from [QuePlan](https://queplan.cl), a CMF-licensed insurance broker in Chile. They let an AI assistant or agent quote and compare health insurance, isapre plans, life and pet insurance on queplan.cl **on behalf of a person or a company**, using the comparator's WebMCP tools when available. The person always confirms and buys on QuePlan.
 
 Install with `/plugin marketplace add QuePlan/agent-skills` (Claude Code) or `npx skills add QuePlan/agent-skills` (any compatible agent). Discovery index: https://queplan.cl/.well-known/agent-skills/index.json. Agents acting for a user are allowed by QuePlan's Terms (section 13.1); scraping to resell, compete or divert customers is not. Contact: agentes@queplan.cl.
+
+**Data sent.** The skill has no servers or connectors of its own. The agent uses queplan.cl in the person's browser and enters only what a quote needs: age and sex of each insured person, dependants' ages, health system (isapre or Fonasa), region and, optionally, monthly income (isapre plans). It never asks for name, national ID (RUT), email, phone, payment cards or health data. QuePlan processes this data under its [Privacy Policy](https://queplan.cl/politica-de-privacidad).
 
 ## Licencia / License
 
