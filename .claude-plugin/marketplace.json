@@ -1,0 +1,14 @@
+{
+  "name": "queplan",
+  "owner": { "name": "QuePlan", "email": "agentes@queplan.cl" },
+  "metadata": { "description": "Skills oficiales de QuePlan para agentes de IA." },
+  "plugins": [
+    {
+      "name": "queplan-seguros",
+      "source": "./",
+      "description": "Cotiza y compara seguros de salud, planes de isapre, vida y mascotas en QuePlan Chile a pedido de una persona.",
+      "version": "1.0.0",
+      "category": "productivity"
+    }
+  ]
+}
