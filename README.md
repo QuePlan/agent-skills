@@ -15,6 +15,7 @@ Perú (queplan.pe) y Colombia (queseguro.co): próximamente.
   /plugin marketplace add QuePlan/agent-skills
   /plugin install queplan-seguros@queplan
   ```
+- **Perplexity Computer** (requiere un plan pago de Perplexity): importa el plugin desde GitHub con la URL del repositorio, `https://github.com/QuePlan/agent-skills`. Está en el formato de plugins de Claude Code, que Computer importa. Después, pídele que cotice o contrate en QuePlan. En el navegador Comet no hace falta instalar nada: pídeselo como a cualquier asistente.
 - **Cualquier agente compatible** (Claude Code, Codex, Cursor, OpenCode y otros), con el CLI [skills](https://skills.sh):
   ```
   npx skills add QuePlan/agent-skills
@@ -47,7 +48,7 @@ Más información: https://queplan.cl/agentes-ia · Integraciones, acuerdos y re
 
 Official [Agent Skills](https://agentskills.io) from [QuePlan](https://queplan.cl), a CMF-licensed insurance broker in Chile. They let an AI assistant or agent quote and compare health insurance, isapre plans, life and pet insurance on queplan.cl **on behalf of a person or a company**, using the comparator's WebMCP tools when available. The agent can also buy and pay for the person, or leave everything ready for them.
 
-Install with `/plugin marketplace add QuePlan/agent-skills` (Claude Code) or `npx skills add QuePlan/agent-skills` (any compatible agent). Discovery index: https://queplan.cl/.well-known/agent-skills/index.json. Agents acting for a user are allowed by QuePlan's Terms (section 13.1); scraping to resell, compete or divert customers is not. Contact: agentes@queplan.cl.
+Install with `/plugin marketplace add QuePlan/agent-skills` (Claude Code), by importing the plugin from `https://github.com/QuePlan/agent-skills` in Perplexity Computer (paid Perplexity plan; it imports Claude Code plugins), or with `npx skills add QuePlan/agent-skills` (any compatible agent). In the Comet browser, just ask: no install needed. Discovery index: https://queplan.cl/.well-known/agent-skills/index.json. Agents acting for a user are allowed by QuePlan's Terms (section 13.1); scraping to resell, compete or divert customers is not. Contact: agentes@queplan.cl.
 
 **Data sent.** The skill has no servers or connectors of its own. The agent uses queplan.cl in the person's browser and enters what a quote needs: age and sex of each insured person, dependants' ages, health system (isapre or Fonasa), region and, optionally, monthly income (isapre plans). To buy, when the person asks, it also enters what the form requires: name, national ID (RUT), contact details, health statement and payment method. QuePlan processes this data under its [Privacy Policy](https://queplan.cl/politica-de-privacidad).
 
