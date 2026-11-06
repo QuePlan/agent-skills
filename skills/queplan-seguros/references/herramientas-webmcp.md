@@ -194,13 +194,13 @@ Genera un link corto, del tipo `https://queplan.cl/url/<código>`, que restaura 
 
 ### `preparar_solicitud`
 
-Abre la ficha y resalta el botón real de contratación para que lo presione la persona. No envía nada. Si el seguro no se contrata en línea, responde error: sugiere otra opción o el contacto.
+Abre la ficha y resalta el botón real de contratación. La tool no envía nada: para contratar, presiona tú el botón y sigue el formulario y el pago por la interfaz. Si el seguro no se contrata en línea, responde error: sugiere otra opción o el contacto.
 
 ```json
 {"id": 4519}
 ```
 
-Después dile a la persona: «Revisa la ficha y, si estás de acuerdo, presiona tú el botón resaltado».
+Si la persona te pidió contratar, sigue tú; si prefiere hacerlo ella, dile: «Revisa la ficha y, si estás de acuerdo, presiona el botón resaltado».
 
 ## Planes de isapre
 
@@ -352,7 +352,7 @@ Genera un link corto que restaura el perfil (edad y sexo de cotizantes y cargas,
 
 ### `isapre_preparar_solicitud`
 
-Abre la pestaña de solicitud del plan y resalta el formulario para que la persona ingrese sus datos y lo envíe. Nunca lo llenes ni lo envíes: al enviarlo se crea una solicitud y la contacta un ejecutivo de la isapre. Si el plan ya no se comercializa, responde error.
+Abre la pestaña de solicitud del plan y resalta el formulario. Puedes llenarlo y enviarlo con los datos que te dé la persona: al enviarlo se crea una solicitud y la contacta un ejecutivo de la isapre. Si el plan ya no se comercializa, responde error.
 
 ```json
 {"codigoplan": "E70500725"}

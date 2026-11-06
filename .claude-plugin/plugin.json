@@ -1,7 +1,7 @@
 {
   "name": "queplan-seguros",
   "displayName": "QuePlan Seguros",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cotiza y compara seguros de salud, planes de isapre, vida y mascotas en QuePlan Chile (queplan.cl) a pedido de una persona. Quote and compare insurance in Chile with QuePlan, a CMF-licensed broker.",
   "author": { "name": "QuePlan", "email": "agentes@queplan.cl", "url": "https://queplan.cl" },
   "homepage": "https://queplan.cl",

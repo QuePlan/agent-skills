@@ -4,9 +4,9 @@ description: >-
   Cotiza y compara seguros en QuePlan Chile (queplan.cl) a pedido de una persona:
   seguros complementarios de salud, catastróficos, oncológicos y dentales, planes de
   isapre, seguros de vida y de mascotas. Indica qué herramientas WebMCP usar si la
-  página las expone, o cómo recorrer la web si no; qué datos mínimos pedir; qué
-  verificar antes de responder, y cómo derivar a la persona para que confirme y
-  contrate en QuePlan. Úsala cuando alguien quiera comparar, cotizar o elegir un
+  página las expone, o cómo recorrer la web si no; qué datos pedir para cotizar y
+  para contratar; qué verificar antes de responder, y cómo contratar y pagar por la
+  persona o dejarle todo listo. Úsala cuando alguien quiera comparar, cotizar o elegir un
   seguro de salud, un plan de isapre u otro seguro personal en Chile. English
   keywords: Chile health insurance quote, compare health insurance plans,
   supplemental health insurance, isapre plan comparison, Fonasa, life insurance,
@@ -18,15 +18,15 @@ compatibility: >-
   navegador, el agente entrega los links del comparador.
 metadata:
   author: QuePlan
-  version: "1.0.0"
+  version: "1.1.0"
   country: CL
-  verified: "2026-11-01"
+  verified: "2026-11-05"
   homepage: https://queplan.cl/agentes-ia
 ---
 
 # Cotizar seguros en QuePlan Chile
 
-Tú preparas la comparación. La persona decide, confirma y contrata en QuePlan.
+Puedes hacer todo el proceso por la persona o la empresa: cotizar, comparar, contratar y pagar. Ella decide hasta dónde llegas.
 
 ## Cuándo usarla
 
@@ -35,12 +35,13 @@ Tú preparas la comparación. La persona decide, confirma y contrata en QuePlan.
 
 ## Reglas
 
-1. **La persona confirma y contrata.** No presiones «Contratar», «Solicitar» ni «Pagar», y no envíes formularios con datos personales o de contacto. Sí puedes usar los controles de perfil, filtros y orden, y el botón «Calcular».
-2. **Mismo precio que la web.** No prometas descuentos ni condiciones que la página no muestra. Los precios son referenciales: el precio final lo fija cada aseguradora o isapre.
-3. **Datos mínimos.** Pide solo los de la tabla siguiente. No inventes los que falten: pregúntalos.
-4. **Nunca pidas ni ingreses** RUT, datos de tarjeta, claves, diagnósticos, enfermedades ni otros datos de salud. Si la persona los ofrece, no los uses ni los repitas, y explícale que, si hacen falta, los ingresará ella en QuePlan.
-5. **Transparencia.** El servicio es gratis para la persona: QuePlan recibe una comisión de la aseguradora. El comparador ordena por criterios técnicos y comerciales, y algunas opciones son patrocinadas.
-6. **Uso razonable.** Haz una acción a la vez y espera su resultado. Identifícate como asistente de la persona; no te hagas pasar por ella.
+1. **Puedes contratar y pagar.** Si la persona te lo pide, presiona «Contratar» o «Solicitar», completa el formulario, acepta las condiciones y paga con los datos y el medio de pago que te entregue. Si prefiere revisar antes, déjale todo listo y dile qué botón presionar.
+2. **Mismo precio que la web.** No prometas descuentos ni condiciones que la página no muestra. Con el perfil completo, los precios del comparador son los precios reales de lista de cada aseguradora o isapre.
+3. **Datos.** Para cotizar, pide los de la tabla siguiente; no inventes los que falten: pregúntalos. Para contratar, ingresa el RUT, los datos de contacto, la declaración de salud y el medio de pago que la persona te dé. Algunos seguros piden una declaración de salud: complétala con lo que diga la persona, sin suponer respuestas.
+4. **Transparencia.** El servicio es gratis para la persona: QuePlan recibe una comisión de la aseguradora. El comparador ordena por criterios técnicos y comerciales, y algunas opciones son patrocinadas.
+5. **Acceso.** Sin registro, con el user-agent de tu asistente y a tu ritmo. Si una tool responde `limite_excedido`, espera lo que indique el mensaje y sigue.
+
+Para cotizar:
 
 | Comparador | Pide | Opcional |
 |---|---|---|
@@ -77,7 +78,7 @@ Antes de la primera llamada, lee [herramientas-webmcp.md](references/herramienta
 4. `ordenar_resultados` y `listar_seguros`. Para «los más baratos», usa `{"order": "lowerPrice"}` y lee la lista. Si necesitas más opciones, usa `ver_mas_resultados`.
 5. `obtener_detalle_seguro`, `comparar_seguros` (2 o 3 seguros) o `recomendar_seguros` (top 3 con razones).
 6. `guardar_comparacion`: genera el link.
-7. `preparar_solicitud`: deja el botón resaltado para que lo presione la persona.
+7. `preparar_solicitud`: abre la ficha con el botón de contratación resaltado. Para contratar, sigue por la interfaz: presiona el botón y completa el formulario y el pago (ver «Cómo cerrar»).
 
 **Planes de isapre:** el mismo flujo, con `isapre_estado`, `isapre_setear_perfil` (admite `pareja`, `region` e `ingreso`), `isapre_aplicar_filtros`, `isapre_ordenar`, `isapre_listar_planes`, `isapre_obtener_detalle_plan`, `isapre_comparar`, `isapre_recomendar`, `isapre_guardar_comparacion` e `isapre_preparar_solicitud`. Los planes se identifican por `codigoplan`.
 
@@ -112,22 +113,23 @@ Opciones para <grupo: p. ej. «tú (38), tu pareja (36) y 2 hijos»> · <previsi
 1. <Plan> — <Aseguradora o isapre> [Patrocinado]
    $<precio>/mes (<UF si aplica>) · para <N> personas · <cobertura clave, tope>
 2. ...
-Precios referenciales consultados en QuePlan el <DD-MM-AAAA>; el precio final lo confirma la aseguradora o isapre.
+Precios consultados en QuePlan el <DD-MM-AAAA> para este perfil.
 Tu comparación guardada: <link de guardar_comparacion o del botón compartir>
 ```
 
 Ejemplos completos de conversación: [ejemplos.md](references/ejemplos.md). Léelos si dudas cómo conducir la conversación o qué responder cuando la persona pide algo que no corresponde.
 
-## Cómo derivar a la persona
+## Cómo cerrar
 
 1. **Guarda la comparación** y entrega el link. Advierte que el link contiene edad, sexo, cargas y región, pero no la renta ni la previsión, que la persona vuelve a marcar al abrirlo.
-2. **Si quiere avanzar con una opción**, usa `preparar_solicitud` o `isapre_preparar_solicitud`, o abre la ficha por la interfaz, y dile qué botón presionar. En isapres, ella completa el formulario y la contacta un ejecutivo de la isapre.
-3. **Si prefiere hablar con alguien**, ofrece el +56 2 2712 7123 (teléfono o WhatsApp), el chat «Chatea con nosotros» del sitio o contacto@queplan.cl. Más canales en https://queplan.cl/contacto.
+2. **Si quiere contratar, hazlo tú.** Usa `preparar_solicitud` o `isapre_preparar_solicitud`, o abre la ficha por la interfaz. Presiona el botón de contratación, completa los datos, la declaración de salud y el pago con lo que te entregue la persona, y confírmale el resultado (número de solicitud o comprobante). En isapres, completa y envía el formulario; después la contacta un ejecutivo de la isapre.
+3. **Si prefiere hacerlo ella**, déjale la ficha abierta y dile qué botón presionar.
+4. **Si prefiere hablar con alguien**, ofrece el +56 2 2712 7123 (teléfono o WhatsApp), el chat «Chatea con nosotros» del sitio o contacto@queplan.cl. Más canales en https://queplan.cl/contacto.
 
 ## Quién es QuePlan
 
 QuePlan Corredores de Seguros SpA, RUT 76.824.542-8, está inscrita en el Registro de Corredores de Seguros de la Comisión para el Mercado Financiero (CMF) con el código N° 8318, según los Términos y Condiciones (https://queplan.cl/Terminos-y-Condiciones). La plataforma la opera QUE PLAN SpA, RUT 76.712.269-1.
 
-Los Términos (sección 13.1) permiten que una persona o una empresa use asistentes y agentes de IA para buscar, comparar, cotizar y contratar en QuePlan, sin registro previo. Lo que no se permite es copiar el contenido o los precios para revenderlos, competir o captar clientes. Para integraciones, acuerdos o reportes: agentes@queplan.cl.
+Los Términos (sección 13.1) permiten que una persona o una empresa use asistentes y agentes de IA para buscar, comparar, cotizar y contratar en QuePlan, sin registro previo. Solo piden no copiar el contenido o los precios para revenderlos o competir con QuePlan. Para integraciones, acuerdos o reportes: agentes@queplan.cl.
 
 Perú y Colombia: próximamente.

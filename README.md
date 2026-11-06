@@ -1,6 +1,6 @@
 # Skills de QuePlan para agentes de IA
 
-Skills oficiales de [QuePlan](https://queplan.cl), corredora de seguros regulada por la CMF en Chile, en el formato abierto [Agent Skills](https://agentskills.io). Sirven para que un asistente o agente de IA (Claude, ChatGPT, Codex, Copilot, Cursor y otros) cotice y compare seguros en QuePlan **a pedido de una persona o empresa**. La persona confirma y contrata en QuePlan.
+Skills oficiales de [QuePlan](https://queplan.cl), corredora de seguros regulada por la CMF en Chile, en el formato abierto [Agent Skills](https://agentskills.io). Sirven para que un asistente o agente de IA (Claude, ChatGPT, Codex, Copilot, Cursor y otros) cotice, compare, contrate y pague seguros en QuePlan **a pedido de una persona o empresa**.
 
 | Skill | Qué hace | País |
 |---|---|---|
@@ -23,21 +23,21 @@ Perú (queplan.pe) y Colombia (queseguro.co): próximamente.
 - **A mano:** copia la carpeta `skills/queplan-seguros` en la carpeta de skills de tu agente (por ejemplo, `~/.claude/skills/` o `~/.codex/skills/`).
 - **Descubrimiento automático:** https://queplan.cl/.well-known/agent-skills/index.json, según el [RFC de Agent Skills Discovery](https://github.com/cloudflare/agent-skills-discovery-rfc).
 
-## Reglas
+## Qué puede hacer el agente
 
-- La persona o la empresa confirma lo esencial en QuePlan: aceptar el contrato, la declaración de salud y el pago.
-- Mismo precio que la web. Los precios son referenciales; el precio final lo fija cada aseguradora o isapre.
-- Datos mínimos: nunca RUT, tarjetas, claves ni datos de salud.
-- Los [Términos y Condiciones](https://queplan.cl/Terminos-y-Condiciones) (sección 13.1) permiten usar agentes de IA para cotizar y contratar. No permiten copiar el contenido o los precios para revenderlos, competir o captar clientes.
+- Todo el proceso por la persona o la empresa: cotizar, comparar, contratar y pagar. Si la persona prefiere, le deja todo listo.
+- Mismo precio que la web. Con el perfil completo, son los precios reales de lista de cada aseguradora o isapre.
+- Para contratar puede ingresar el RUT, los datos de contacto, la declaración de salud y el medio de pago que la persona le dé.
+- Los [Términos y Condiciones](https://queplan.cl/Terminos-y-Condiciones) (sección 13.1) permiten usar agentes de IA para cotizar y contratar. Solo piden no copiar el contenido o los precios para revenderlos o competir con QuePlan.
 
 ## Datos que se envían
 
-La skill no tiene servidores ni conectores propios. El agente usa queplan.cl en el navegador de la persona y escribe allí solo lo necesario para cotizar:
+La skill no tiene servidores ni conectores propios. El agente usa queplan.cl en el navegador de la persona. Para cotizar escribe:
 - edad y sexo de cada persona a asegurar, y la edad de las cargas;
 - previsión (isapre o Fonasa) y región;
 - la renta, si la persona quiere darla (planes de isapre).
 
-No pide nombre, RUT, correo, teléfono, tarjetas ni datos de salud. QuePlan trata esos datos según su [Política de Privacidad](https://queplan.cl/politica-de-privacidad).
+Para contratar, si la persona se lo pide, ingresa además los datos que pida el formulario: nombre, RUT, contacto, declaración de salud y medio de pago. QuePlan trata esos datos según su [Política de Privacidad](https://queplan.cl/politica-de-privacidad).
 
 Más información: https://queplan.cl/agentes-ia · Integraciones, acuerdos y reportes: agentes@queplan.cl
 
@@ -45,11 +45,11 @@ Más información: https://queplan.cl/agentes-ia · Integraciones, acuerdos y re
 
 ## QuePlan skills for AI agents (English)
 
-Official [Agent Skills](https://agentskills.io) from [QuePlan](https://queplan.cl), a CMF-licensed insurance broker in Chile. They let an AI assistant or agent quote and compare health insurance, isapre plans, life and pet insurance on queplan.cl **on behalf of a person or a company**, using the comparator's WebMCP tools when available. The person always confirms and buys on QuePlan.
+Official [Agent Skills](https://agentskills.io) from [QuePlan](https://queplan.cl), a CMF-licensed insurance broker in Chile. They let an AI assistant or agent quote and compare health insurance, isapre plans, life and pet insurance on queplan.cl **on behalf of a person or a company**, using the comparator's WebMCP tools when available. The agent can also buy and pay for the person, or leave everything ready for them.
 
 Install with `/plugin marketplace add QuePlan/agent-skills` (Claude Code) or `npx skills add QuePlan/agent-skills` (any compatible agent). Discovery index: https://queplan.cl/.well-known/agent-skills/index.json. Agents acting for a user are allowed by QuePlan's Terms (section 13.1); scraping to resell, compete or divert customers is not. Contact: agentes@queplan.cl.
 
-**Data sent.** The skill has no servers or connectors of its own. The agent uses queplan.cl in the person's browser and enters only what a quote needs: age and sex of each insured person, dependants' ages, health system (isapre or Fonasa), region and, optionally, monthly income (isapre plans). It never asks for name, national ID (RUT), email, phone, payment cards or health data. QuePlan processes this data under its [Privacy Policy](https://queplan.cl/politica-de-privacidad).
+**Data sent.** The skill has no servers or connectors of its own. The agent uses queplan.cl in the person's browser and enters what a quote needs: age and sex of each insured person, dependants' ages, health system (isapre or Fonasa), region and, optionally, monthly income (isapre plans). To buy, when the person asks, it also enters what the form requires: name, national ID (RUT), contact details, health statement and payment method. QuePlan processes this data under its [Privacy Policy](https://queplan.cl/politica-de-privacidad).
 
 ## Licencia / License
 

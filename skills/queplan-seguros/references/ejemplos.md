@@ -7,13 +7,13 @@ Los precios, planes e IDs son ilustrativos. En una conversación real salen de l
 1. [Complementario para una familia, con WebMCP](#1-complementario-para-una-familia-con-webmcp)
 2. [Plan de isapre con clínica preferida](#2-plan-de-isapre-con-clínica-preferida)
 3. [Mascota, por la interfaz](#3-mascota-por-la-interfaz)
-4. [Lo que el agente no hace](#4-lo-que-el-agente-no-hace)
+4. [Contratar y pagar por la persona](#4-contratar-y-pagar-por-la-persona)
 
 ## 1. Complementario para una familia, con WebMCP
 
 **Persona:** Compárame seguros complementarios para mi familia: yo 38, mi pareja 36, hijos de 5 y 8. Estamos en isapre.
 
-**Agente:** Para cotizar bien me faltan dos datos: tu sexo y el de tu pareja. Con eso basta; no necesito RUT ni datos de salud.
+**Agente:** Para cotizar bien me faltan dos datos: tu sexo y el de tu pareja.
 
 **Persona:** Yo hombre, ella mujer.
 
@@ -33,13 +33,13 @@ Los precios, planes e IDs son ilustrativos. En una conversación real salen de l
 > 3. Plan C — Aseguradora 3 · $41.500/mes · para 4 personas · hospitalario y ambulatorio
 >
 > La primera opción de la lista, Plan D de la Aseguradora 4 ($96.882/mes), es **patrocinada**: está arriba por eso, no por precio. Dejé fuera dos planes que cotizan para 2 personas.
-> Precios referenciales consultados en QuePlan el 30-10-2026; el precio final lo confirma la aseguradora.
+> Precios consultados en QuePlan el 30-10-2026 para este perfil.
 > Tu comparación guardada: https://queplan.cl/url/abc123. Incluye edades, sexo y cargas; la previsión la marcas de nuevo al abrirlo.
-> ¿Quieres que deje lista la solicitud de alguno? La confirmas tú en QuePlan.
+> ¿Contrato alguno por ti o prefieres que te deje la solicitud lista?
 
 **Persona:** La C.
 
-**Agente:** `preparar_solicitud {"id": 4533}` → «Abrí la ficha del Plan C con el botón de contratación resaltado. Revisa las condiciones y, si estás de acuerdo, presiónalo tú.»
+**Agente:** `preparar_solicitud {"id": 4533}` → «Abrí la ficha del Plan C con el botón de contratación resaltado. ¿Lo contrato yo? Para eso necesito los datos del formulario (nombres, RUT y contacto de cada asegurado), la declaración de salud y el medio de pago. Si prefieres, lo presionas tú.»
 
 ## 2. Plan de isapre con clínica preferida
 
@@ -59,12 +59,12 @@ Los precios, planes e IDs son ilustrativos. En una conversación real salen de l
 > 2. Plan Y — Isapre 2 · 4,52 UF ($186.900/mes) · puntaje 6,8 · cerrado
 > 3. Plan Z — Isapre 2 · 4,42 UF ($182.600/mes) · puntaje 6,7 · preferente
 >
-> Los tres superan tu 7% en $38.000 a $47.000 al mes; esa diferencia la pagas tú. Precios referenciales del 30-10-2026, con la UF de hoy; el precio final lo confirma la isapre.
+> Los tres superan tu 7% en $38.000 a $47.000 al mes; esa diferencia la pagas tú. Precios del 30-10-2026 para tu perfil, con la UF de hoy.
 > Link de esta búsqueda: https://queplan.cl/url/def456. No incluye tu renta: quien lo abra verá el rango de precio por defecto.
 
 **Persona:** Me gusta el X, ¿lo contratas?
 
-**Agente:** `isapre_preparar_solicitud {"codigoplan": "E70500725"}` → «Abrí la solicitud del Plan X con el formulario resaltado. Complétalo tú y envíalo si estás de acuerdo; después te contacta un ejecutivo de la isapre. Yo no lo lleno ni lo envío.»
+**Agente:** `isapre_preparar_solicitud {"codigoplan": "E70500725"}` → abre el formulario de solicitud del Plan X. Con los datos que le da la persona (nombre, RUT, correo y teléfono), lo completa y lo envía: «Listo, envié la solicitud del Plan X. Te va a contactar un ejecutivo de la isapre para terminar la afiliación.»
 
 ## 3. Mascota, por la interfaz
 
@@ -80,15 +80,16 @@ Los precios, planes e IDs son ilustrativos. En una conversación real salen de l
 > 1. Plan Estándar — Aseguradora 1 · $4.947/mes (0,12 UF) · tope 50 UF
 > 2. Plan Full — Aseguradora 1 · $8.658/mes (0,21 UF) · tope 100 UF
 >
-> Precios referenciales del 30-10-2026. Puedes ver las coberturas y contratar en https://queplan.cl/Comparar/Seguros-Mascotas, ingresando los mismos datos.
+> Precios del 30-10-2026. ¿Contrato alguno por ti? Si prefieres hacerlo tú: https://queplan.cl/Comparar/Seguros-Mascotas, con los mismos datos.
 
-## 4. Lo que el agente no hace
+## 4. Contratar y pagar por la persona
 
 **Persona:** Mi RUT es 12.345.678-9 y tengo diabetes. Contrátame el más barato y págalo con mi tarjeta, que te la paso.
 
 **Agente:**
-> Para cotizar no necesito tu RUT ni datos de salud: con tu edad, tu sexo, tu previsión y tus cargas basta. No los voy a usar ni a guardar. Tampoco puedo contratar ni pagar por ti: eso lo confirmas tú en QuePlan, y la tarjeta la ingresas solo en la página de pago del sitio. Si un seguro te pide una declaración de salud, la completas tú en el formulario.
-> Dime tu edad, tu sexo y si estás en isapre o Fonasa, y te muestro las opciones más baratas con un link para que contrates cuando quieras.
+> Perfecto. Para encontrar el más barato necesito tu edad, tu sexo y si estás en isapre o Fonasa. Después lo contrato: completo tus datos y la declaración de salud (ahí va tu diabetes, tal como me la dices) y pago con tu tarjeta en la página de pago de QuePlan. Antes de pagar te muestro el plan y el precio final.
+
+Después de cotizar, el agente abre la ficha, presiona «Contratar», completa el formulario y la declaración de salud con lo que dijo la persona, ingresa la tarjeta en la página de pago y le entrega el comprobante. Si la aseguradora pide revisar la declaración de salud antes de aceptar, se lo dice.
 
 **Variantes:**
 - *Si la persona está en Perú o Colombia:* «Por ahora esto funciona para Chile. Perú y Colombia, próximamente.»
